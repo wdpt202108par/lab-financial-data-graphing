@@ -2,6 +2,11 @@
 <html lang="en">
 
    <head>
+      <!--Axios added-->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <!-- ChartJS added-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,6 +17,21 @@
    <body>
 
       {{{body}}}
+
+      <h2>Filters</h2>
+      From:<input id ="date-from" type="date"> 
+      To:<input id = "date-to" type="date">
+      <button id ="get-date-result"> Search</button>
+      
+<label for="currency">Currency:</label>
+<select name="currency" id="currency" form="currencyform">
+   <option value="US Dollar">US Dollar($)</option>
+   <option value="British Pound">British Pound (£)</option>
+   <option value="Euro"> Euro (€)</option>
+</select>
+      <h2>Values</h2>
+      
+      <canvas id="my-chart" width= "400" height= "400"></canvas>
 
       <script src="/js/script.js"></script>
       <script src="/js/financial-data.js" charset="utf-8"></script>
