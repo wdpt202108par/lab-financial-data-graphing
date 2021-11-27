@@ -22,21 +22,24 @@ const getData = dataName => {
   getData();
   
 // construction du graph
-const stockDollar =
-  function (stockDatas){
 
-    const dolars =
+  function printTheChart(stockDatas) {
+    
+    const dailyData = stockDatas['bpi'];
+    const date = Object.keys(dailyData);
+    const dollar = date.map(date => dailyData[date]);
+    
     const ctx = document.getElementById('my-chart').getContext('2d');
     const chart = new Chart(ctx, {
       type:'line',
       data: {
-          labels: stockDatas,
-          datasats: [
+          labels: date,
+          datasets: [
               {
                   label: 'Bitcoin Price Index',
                   backgroundColor: 'rgb(15, 5, 107)',
-                  boderColor: 'rgb(15, 5, 107)',
-                  data:
+                  borderColor: 'rgb(15, 5, 107)',
+                  data: dollar,
               }
           ]
       }
