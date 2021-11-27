@@ -37,8 +37,8 @@ const getData = dataName => {
           datasets: [
               {
                   label: 'Bitcoin Price Index',
-                  backgroundColor: 'rgb(15, 5, 107)',
-                  borderColor: 'rgb(15, 5, 107)',
+                  backgroundColor: 'rgb(108, 189, 253)',
+                  borderColor: 'rgb(108, 189, 253)',
                   data: dollar,
               }
           ]
