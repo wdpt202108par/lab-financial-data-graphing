@@ -1,4 +1,19 @@
+const btnFrom= document.querySelector('#date-from')
+const btnTo = document.querySelector('#date-to')
+
+btnFrom.onchange = function (event) {
+  console.log('coucou', btnFrom.value)
+}
+
+btnTo.onchange = function (event) {
+  console.log('coucou', btnTo.value)
+}
+
 //Iteration 1 : AXIOS REQUEST
+
+//const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json';
+//`${apiUrl}?start=${btnFrom.value}&end=${btnTo.value}`
+
 axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
   .then(function (response) {
     console.log('data=', response.data.bpi);
