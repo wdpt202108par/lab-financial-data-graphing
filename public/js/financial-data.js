@@ -1,10 +1,8 @@
-var apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json'
-
 const inputFrom = document.querySelector('#inputFrom')
 const inputTo = document.querySelector('#inputTo')
 
-
-axios.get(apiUrl)
+function requestAxios () {
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${inputFrom.value}&end=${inputTo.value}`)
     .then(function(response) {
         console.log('resp=', response);
         const dailyBPIData = response.data.bpi;
@@ -27,12 +25,14 @@ axios.get(apiUrl)
         })
     })
     .catch(err => {console.log ('oops', err)})
+} 
 
-inputFrom.addEventListener("change", function() {
-    apiUrl =`http://api.coindesk.com/v1/bpi/historical/close.json?start=${inputFrom.value}`
-})
+requestAxios()
 
+inputFrom.addEventListener("change", requestAxios)
+//écritures différentes mais même effet (au lieu d'appeler une fonction vide, on appelle directement la fonction qui n'a pas de paramètres)
 inputTo.addEventListener("change", function() {
-    apiUrl =`http://api.coindesk.com/v1/bpi/historical/close.json?end=${inputTo.value}`
+    requestAxios()
 })
+
 
