@@ -1,4 +1,10 @@
-axios.get('http://api.coindesk.com/v1/bpi/historical/close.json ')
+var apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json'
+
+const inputFrom = document.querySelector('#inputFrom')
+const inputTo = document.querySelector('#inputTo')
+
+
+axios.get(apiUrl)
     .then(function(response) {
         console.log('resp=', response);
         const dailyBPIData = response.data.bpi;
@@ -22,4 +28,11 @@ axios.get('http://api.coindesk.com/v1/bpi/historical/close.json ')
     })
     .catch(err => {console.log ('oops', err)})
 
+inputFrom.addEventListener("change", function() {
+    apiUrl =`http://api.coindesk.com/v1/bpi/historical/close.json?start=${inputFrom.value}`
+})
+
+inputTo.addEventListener("change", function() {
+    apiUrl =`http://api.coindesk.com/v1/bpi/historical/close.json?end=${inputTo.value}`
+})
 
