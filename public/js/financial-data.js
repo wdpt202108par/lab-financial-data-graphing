@@ -13,10 +13,34 @@ const valuedata = response.data
 const getData = dataName => {
     axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
       .then(response => {
+        printTheChart(response.data);
         console.log('Response from API is: ', response);
       })
       .catch(err => console.log(err));
   };
 
   getData();
+  
+// construction du graph
+const stockDollar =
+  function (stockDatas){
+
+    const dolars =
+    const ctx = document.getElementById('my-chart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type:'line',
+      data: {
+          labels: stockDatas,
+          datasats: [
+              {
+                  label: 'Bitcoin Price Index',
+                  backgroundColor: 'rgb(15, 5, 107)',
+                  boderColor: 'rgb(15, 5, 107)',
+                  data:
+              }
+          ]
+      }
+  })
+}
+
   
