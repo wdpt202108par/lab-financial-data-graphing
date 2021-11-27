@@ -2,10 +2,10 @@
 /* Iteration 1 : GET the data - Axois request URL */
 axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
 .then(responseAPI => {
-  console.log('Response from API is: ', responseAPI.data);
+console.log('Response from API is: ', responseAPI.data);
 })
 .catch(err=> {
-  console.log('Error! Axios get failed error');
+console.log('Error! Axios get failed error');
 })
 
 
