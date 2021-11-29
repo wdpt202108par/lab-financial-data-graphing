@@ -1,14 +1,4 @@
 console.log('coucou')
-/*
-const getdata = valueBitcoin => axios.get('https://web.archive.org/web/20191106152143/https://www.coindesk.com/api')
-.then(function (response){
-    console.log('data=', response.data)
-    // extrait des datas
-const valuedata = response.data
-.catch(err => console.log(err))
-
-})
-*/
 
 const getData = dataName => {
     axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
@@ -19,31 +9,41 @@ const getData = dataName => {
       .catch(err => console.log(err));
   };
 
-  getData();
+getData();
   
-// construction du graph
+// Construction du graphique
 
-  function printTheChart(stockDatas) {
+function printTheChart(stockDatas) {
     
-    const dailyData = stockDatas['bpi'];
-    const date = Object.keys(dailyData);
-    const dollar = date.map(date => dailyData[date]);
+  const dailyData = stockDatas['bpi'];
+  const date = Object.keys(dailyData);
+  const dollar = date.map(date => dailyData[date]);
     
-    const ctx = document.getElementById('my-chart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type:'line',
-      data: {
-          labels: date,
-          datasets: [
+  const ctx = document.getElementById('my-chart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type:'line',
+    data: {
+         labels: date,
+         datasets: [
               {
-                  label: 'Bitcoin Price Index',
-                  backgroundColor: 'rgb(108, 189, 253)',
-                  borderColor: 'rgb(108, 189, 253)',
-                  data: dollar,
+                label: 'Bitcoin Price Index',
+                backgroundColor: 'rgb(108, 189, 253)',
+                borderColor: 'rgb(108, 189, 253)',
+                data: dollar,
               }
-          ]
-      }
+         ]
+    }
   })
 }
 
-  
+const startingDate = document.querySelector('#startDate');
+const endingDate = document.querySelector('#endDate');
+
+startingDate.onchange = function (event) {
+  console.log('HAHAHA');
+  //printTheChart(startingDate.value, endingDate.value);
+}
+
+endingDate.onchange = function (event) {
+  //printTheChart(startingDate.value, endingDate.value);
+} 
