@@ -1,24 +1,31 @@
-const getDates = () => {
+// Hoisting
+// var getNewDate
+// var printTheChart
 
-    document.getElementsByClassName('.fromTo').addEventListener('input', event => {
-        event.preventDefault(); // <= !!! Prevent the refresh
-        console.log('form submit');
-        let dateStart = document.getElementsByClassName('.from').value;
-        let dateEnd = document.getElementsByClassName('.to').value;
-        let urlApi = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}`;
+
+
+function getNewDate(){
+    let dateStart = document.querySelector('.dateStart').value; 
+    let dateEnd = document.querySelector('.dateEnd').value;
+    let urlApi = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}`;
         // (1) getting the data using the GET request
-        axios
-            .get(urlApi)
-            .then(responseFromAPI => {
-                console.log(responseFromAPI);
-                printTheChart(responseFromAPI); // <== call the function here where you used to console.log() the response
-            })
-            .catch(err => console.log('Error while getting the data: ', err));
-    });
 
-};
 
-getDates();
+    axios
+        .get(urlApi)
+        .then(responseFromAPI => {
+        console.log(responseFromAPI);
+        printTheChart(responseFromAPI); // <== call the function here where you used to console.log() the response
+        })
+        .catch(err => console.log('Error while getting the data: ', err));
+
+}
+
+getNewDate()
+
+document.querySelector('.dateStart').addEventListener('change', getNewDate);
+document.querySelector('.dateEnd').addEventListener('change', getNewDate);
+
 
 
 function printTheChart(stockData){
@@ -51,6 +58,7 @@ function printTheChart(stockData){
             }
     })
 }
+
 
 
 
