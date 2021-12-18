@@ -10,11 +10,45 @@
    </head>
 
    <body>
+      <section>
+         
+         <div class="left">
+            <h1>Filters</h1>
+            <div class="fromTo">
+               <div class="from">From: <input class="dateStart" type="date" value="2014-12-23"/></div>
+               <div class="to">To: <input class="dateEnd" type="date" value="2015-12-23"/></div>
+            </div>
+            <div>
+               <div class="currency">Currency <input type="text"/></div>
+            </div>
+         </div>
+
+         <div class="right">
+            <h1 class="rightTitle">Values</h1>
+            <div class="values">
+               <div class="max">Max: <input type="text"/></div>
+               <div class="min">Min: <input type="text"/></div>
+            </div>
+         </div>
+
+      </section>
+      
+
+
+
+      
+
+
+
+      <canvas id="my-chart"></canvas>
 
       {{{body}}}
 
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       <script src="/js/script.js"></script>
       <script src="/js/financial-data.js" charset="utf-8"></script>
+
    </body>
 
 </html>

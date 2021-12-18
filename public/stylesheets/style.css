@@ -6,3 +6,46 @@ body {
 a {
   color: #00B7FF;
 }
+
+.fromTo {
+  display: flex;
+}
+
+.from {
+  margin: 10px;
+}
+
+.to {
+  margin: 10px;
+}
+
+.currency {
+  margin: 10px;
+}
+
+.max {
+  margin: 10px;
+  text-align: right;
+}
+
+.min {
+  margin: 10px;
+  text-align: right;
+}
+
+.right{
+  margin: auto;
+  margin-right: 0px;
+}
+.left{
+  margin: auto;
+  margin-left: 0px;
+}
+
+section {
+  display: flex; 
+}
+
+.rightTitle{
+  text-align: right;
+}
